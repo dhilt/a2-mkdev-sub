@@ -1,5 +1,28 @@
-<h2>Credit card</h2>
-<h3>Here we'll have a Credit card controls...</h3>
+<div class="payment-info">
+  <form id="payment-form" method="post">
+    <div class="payment-errors"></div>
 
-<h2>Payment history</h2>
+    <h4>Payment data:</h4>
+    <div id="card-details" class="payment-block">
+      <div class="card-fields">
+        <label for="card-number">Credit Card Number:</label>
+        <input id="card-number" type="text" data-stripe="number" placeholder="0000 0000 0000 0000">
+        <label for="card-month-year">Expires:</label>
+        <input id="card-month-year" type="text" placeholder="00/0000">
+      </div>
+
+      <div class="card-fields">
+        <label for="card-holder">Cardholder name:</label>
+        <input id="card-holder" type="text" placeholder="CARD HOLDER">
+        <label for="card-cvc">CVC / CVV:</label>
+        <input id="card-cvc" type="text" data-stripe="cvc" placeholder="cvc">
+      </div>
+    </div>
+    <input type="submit" value="Pay" class="button button-centered" id="upgrade-button"
+           onclick="doPay()">
+  </form>
+</div>
+
+<h5>Payments</h5>
+
 <history></history>
