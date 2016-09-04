@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter, SimpleChange} from '@angular/core';
 import {Mentor} from './mentor';
 
 @Component({
@@ -15,5 +15,20 @@ export class MentorsComponent {
   onSelect(mentor: Mentor): void {
     this.selectedMentor = mentor;
     this.mentorSelected.emit(mentor);
+  }
+
+  ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
+    if (changes['selectedCourseId']) {
+      this.onSelectedCourseIdChanged();
+    }
+  }
+
+  private onSelectedCourseIdChanged(): void {
+    if(!this.selectedMentor) {
+      return;
+    }
+    if(this.selectedMentor.courses.indexOf(this.selectedCourseId) === -1) {
+      this.selectedMentor = null;
+    }
   }
 }
