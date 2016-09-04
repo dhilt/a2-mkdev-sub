@@ -7,4 +7,10 @@ import {Mentor} from './mentor';
 })
 export class MentorsComponent {
   @Input('mentorList') mentors: Mentor[];
+
+  selectedMentor: Mentor;
+
+  onSelect(mentor: Mentor): void {
+    this.selectedMentor = mentor;
+  }
 }
