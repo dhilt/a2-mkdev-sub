@@ -18,8 +18,8 @@
         <input id="card-cvc" type="text" data-stripe="cvc" placeholder="cvc">
       </div>
     </div>
-    <input type="submit" value="Pay" class="button button-centered" id="upgrade-button"
-           onclick="doPay()">
+    <input type="submit" class="button button-centered" id="upgrade-button"
+           *ngIf="price" value="Pay €{{price}}" onclick="doPay()">
   </form>
 </div>
 
