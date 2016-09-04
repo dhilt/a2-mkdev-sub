@@ -1,6 +1,5 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {Mentor} from './mentor';
-import {MentorService} from './mentor.service';
 
 @Component({
   selector: 'mentors',
@@ -8,14 +7,12 @@ import {MentorService} from './mentor.service';
 })
 export class MentorsComponent {
   @Input('mentorList') mentors: Mentor[];
-
-  constructor(private mentorService: MentorService) {
-  }
+  @Output('mentorSelected') mentorSelected = new EventEmitter();
 
   selectedMentor: Mentor;
 
   onSelect(mentor: Mentor): void {
     this.selectedMentor = mentor;
-    this.mentorService.selectMentor(mentor);
+    this.mentorSelected.emit(mentor);
   }
 }
