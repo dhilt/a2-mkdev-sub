@@ -13,6 +13,8 @@ export class MentorService {
     new Mentor(5, 'Person #5', 40, [1, 4])
   ];
 
+  selected: Mentor;
+
   // a request to remote should be here
   getMentors(): Promise<Mentor[]> {
     return Promise.resolve(this.mentors);
@@ -20,5 +22,13 @@ export class MentorService {
 
   getMentor(id: number): Promise<Mentor> {
     return Promise.resolve(this.mentors.find(mentor => mentor.id === id));
+  }
+
+  selectMentor(mentor: Mentor) {
+    this.selected = mentor;
+  }
+
+  getSelectMentor(): Mentor {
+    return this.selected || null;
   }
 }
