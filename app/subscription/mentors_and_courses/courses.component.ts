@@ -7,6 +7,7 @@ import {Course} from './course';
 })
 export class CoursesComponent {
   @Input('courseList') courses: Course[];
+  @Input('selectedMentorCourses') selectedMentorCourses: number[];
 
   selectedCourse: Course;
 
