@@ -7,7 +7,8 @@ import {Mentor} from './mentor';
 })
 export class MentorsComponent {
   @Input('mentorList') mentors: Mentor[];
-  @Output('mentorSelected') mentorSelected = new EventEmitter();
+  @Input('selectedCourseId') selectedCourseId: number;
+  @Output('selectMentor') mentorSelected = new EventEmitter();
 
   selectedMentor: Mentor;
 

@@ -1,7 +1,10 @@
 <div class="mentor-selector clearfix">
   <div class="pull-left">
 
-    <mentors [mentorList]="mentors" (mentorSelected)="onMentorSelected($event)"></mentors>
+    <mentors
+      [mentorList]="mentors"
+      [selectedCourseId]="selectedCourse ? selectedCourse.id : null"
+      (selectMentor)="onMentorSelected($event)"></mentors>
 
   </div>
   <div class="pull-left">

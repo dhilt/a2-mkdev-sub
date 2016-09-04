@@ -4,7 +4,7 @@
   <li class="clearfix" *ngFor="let mentor of mentors">
     <a (click)="onSelect(mentor)"
        [class.active]="mentor === selectedMentor"
-       [class.inactive]="mentor !== selectedMentor">
+       [class.inactive]="!(mentor === selectedMentor || mentor.courses.indexOf(selectedCourseId) !== -1)">
       {{mentor.name}} from €{{mentor.fee}}/week
     </a>
   </li>
