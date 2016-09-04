@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {Mentor} from './mentors_and_courses/mentor';
 import {MentorService} from './mentors_and_courses/mentor.service';
 import {Course} from './mentors_and_courses/course';
@@ -10,6 +10,7 @@ import {CourseService} from './mentors_and_courses/course.service';
 })
 
 export class SubscriptionComponent implements OnInit {
+  @Output('setPrice') priceSet = new EventEmitter();
 
   public mentors: Mentor[];
   public courses: Course[];
@@ -20,6 +21,7 @@ export class SubscriptionComponent implements OnInit {
   setPrice(): void {
     // todo duration price should be added here
     this.price = this.selectedMentor ? this.selectedMentor.fee : 0;
+    this.priceSet.emit(this.price);
   }
 
   setMentor(mentor: Mentor): void {
