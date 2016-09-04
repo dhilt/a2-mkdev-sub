@@ -7,4 +7,10 @@ import {Course} from './course';
 })
 export class CoursesComponent {
   @Input('courseList') courses: Course[];
+
+  selectedCourse: Course;
+
+  onSelect(course: Course): void {
+    this.selectedCourse = course;
+  }
 }
