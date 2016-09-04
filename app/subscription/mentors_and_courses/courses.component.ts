@@ -1,5 +1,6 @@
-import {Component, Input, SimpleChange, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter, SimpleChange} from '@angular/core';
 import {Course} from './course';
+import {Mentor} from './mentor';
 
 @Component({
   selector: 'courses',
@@ -7,7 +8,7 @@ import {Course} from './course';
 })
 export class CoursesComponent {
   @Input('courseList') courses: Course[];
-  @Input('selectedMentorCourses') selectedMentorCourses: number[];
+  @Input('selectedMentor') selectedMentor: Mentor;
   @Output('selectCourse') onCourseSelected = new EventEmitter();
 
   selectedCourse: Course;
@@ -18,16 +19,14 @@ export class CoursesComponent {
   }
 
   ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
-    if (changes['selectedMentorCourses']) {
-      this.onSelectedMentorCoursesChanged();
+    if (changes['selectedMentor']) {
+      this.onSelectedMentorChanged();
     }
   }
 
-  private onSelectedMentorCoursesChanged(): void {
-    if(!this.selectedCourse) {
-      return;
-    }
-    if(this.selectedMentorCourses.indexOf(this.selectedCourse.id) === -1) {
+  private onSelectedMentorChanged(): void {
+    if (this.selectedMentor && this.selectedCourse &&
+      this.selectedMentor.courses.indexOf(this.selectedCourse.id) === -1) {
       this.selectedCourse = null;
     }
   }

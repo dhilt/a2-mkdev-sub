@@ -4,7 +4,7 @@
   <li class="clearfix" *ngFor="let course of courses">
     <a (click)="onSelect(course)"
        [class.active]="course === selectedCourse"
-       [class.inactive]="!(course === selectedCourse || selectedMentorCourses.indexOf(course.id) !== -1)">
+       [class.inactive]="!(course === selectedCourse || selectedMentor && selectedMentor.courses.indexOf(course.id) !== -1)">
       {{course.name}}
     </a>
   </li>

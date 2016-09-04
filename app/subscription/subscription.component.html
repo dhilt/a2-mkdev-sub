@@ -3,7 +3,7 @@
 
     <mentors
       [mentorList]="mentors"
-      [selectedCourseId]="selectedCourse ? selectedCourse.id : null"
+      [selectedCourse]="selectedCourse"
       (selectMentor)="onMentorSelected($event)"></mentors>
 
   </div>
@@ -11,7 +11,7 @@
 
     <courses
       [courseList]="courses"
-      [selectedMentorCourses]="selectedMentor ? selectedMentor.courses : []"
+      [selectedMentor]="selectedMentor"
       (selectCourse)="onCourseSelected($event)"></courses>
 
   </div>

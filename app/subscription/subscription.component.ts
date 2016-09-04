@@ -24,12 +24,22 @@ export class SubscriptionComponent implements OnInit {
     this.courseService.getCourses().then(result => this.courses = result);
   }
 
+  testSelectedModelsCross(): boolean {
+    return this.selectedMentor && this.selectedCourse &&
+      this.selectedMentor.courses.indexOf(this.selectedCourse.id) === -1;
+  }
+
   onMentorSelected(mentor: Mentor): void {
-    this.mentorService.selectMentor(mentor);
     this.selectedMentor = mentor;
+    if(this.testSelectedModelsCross()) {
+      this.selectedCourse = null;
+    }
   }
 
   onCourseSelected(course: Course): void {
     this.selectedCourse = course;
+    if(this.testSelectedModelsCross()) {
+      this.selectedMentor = null;
+    }
   }
 }
