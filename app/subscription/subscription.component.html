@@ -34,10 +34,15 @@
     <dd class="sum-to-pay-header">
       Total:
     </dd>
-    <dt class="sum-to-pay">
-    <div>
-      <span class="sum-default">First choose a mentor</span>
-    </div>
+    <dt *ngIf="price" class="sum-to-pay">
+      <div>
+        <span class="">€{{price}}</span>
+      </div>
+    </dt>
+    <dt *ngIf="!price" class="sum-to-pay">
+      <div>
+        <span class="sum-default">First choose a mentor</span>
+      </div>
     </dt>
   </dl>
 </form>
