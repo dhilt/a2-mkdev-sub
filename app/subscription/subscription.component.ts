@@ -14,6 +14,7 @@ export class SubscriptionComponent implements OnInit {
   public mentors: Mentor[];
   public courses: Course[];
   public selectedMentor: Mentor;
+  public selectedCourse: Course;
 
   constructor(private mentorService: MentorService, private courseService: CourseService) {
   }
@@ -26,5 +27,9 @@ export class SubscriptionComponent implements OnInit {
   onMentorSelected(mentor: Mentor): void {
     this.mentorService.selectMentor(mentor);
     this.selectedMentor = mentor;
+  }
+
+  onCourseSelected(course: Course): void {
+    this.selectedCourse = course;
   }
 }

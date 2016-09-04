@@ -1,4 +1,4 @@
-import {Component, Input, SimpleChange} from '@angular/core';
+import {Component, Input, SimpleChange, Output, EventEmitter} from '@angular/core';
 import {Course} from './course';
 
 @Component({
@@ -8,11 +8,13 @@ import {Course} from './course';
 export class CoursesComponent {
   @Input('courseList') courses: Course[];
   @Input('selectedMentorCourses') selectedMentorCourses: number[];
+  @Output('selectCourse') onCourseSelected = new EventEmitter();
 
   selectedCourse: Course;
 
   onSelect(course: Course): void {
     this.selectedCourse = course;
+    this.onCourseSelected.emit(course);
   }
 
   ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {

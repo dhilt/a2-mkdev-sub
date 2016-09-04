@@ -6,7 +6,10 @@
   </div>
   <div class="pull-left">
 
-    <courses [courseList]="courses" [selectedMentorCourses]="selectedMentor ? selectedMentor.courses : []"></courses>
+    <courses
+      [courseList]="courses"
+      [selectedMentorCourses]="selectedMentor ? selectedMentor.courses : []"
+      (selectCourse)="onCourseSelected($event)"></courses>
 
   </div>
 </div>
