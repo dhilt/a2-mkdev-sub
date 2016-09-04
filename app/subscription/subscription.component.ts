@@ -15,6 +15,17 @@ export class SubscriptionComponent implements OnInit {
   public courses: Course[];
   public selectedMentor: Mentor;
   public selectedCourse: Course;
+  public price: number;
+
+  setPrice(): void {
+    // todo duration price should be added here
+    this.price = this.selectedMentor ? this.selectedMentor.fee : 0;
+  }
+
+  setMentor(mentor: Mentor): void {
+    this.selectedMentor = mentor;
+    this.setPrice();
+  }
 
   constructor(private mentorService: MentorService, private courseService: CourseService) {
   }
@@ -30,7 +41,7 @@ export class SubscriptionComponent implements OnInit {
   }
 
   onMentorSelected(mentor: Mentor): void {
-    this.selectedMentor = mentor;
+    this.setMentor(mentor);
     if(this.testSelectedModelsCross()) {
       this.selectedCourse = null;
     }
@@ -39,7 +50,7 @@ export class SubscriptionComponent implements OnInit {
   onCourseSelected(course: Course): void {
     this.selectedCourse = course;
     if(this.testSelectedModelsCross()) {
-      this.selectedMentor = null;
+      this.setMentor(null);
     }
   }
 }
