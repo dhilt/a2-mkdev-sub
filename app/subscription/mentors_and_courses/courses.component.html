@@ -1,43 +1,9 @@
 <h5>Available courses</h5>
+
 <ul class="courses-list">
-  <li class="clearfix">
-    <a href="#" data-course-id="6" data-other-courses-ids="[]" class="inactive">
-      Course #1
-    </a>
-  </li>
-  <li class="clearfix">
-    <a href="#" data-course-id="8" data-other-courses-ids="[8, 4]" class="inactive">
-      Course #2
-    </a>
-  </li>
-  <li class="clearfix">
-    <a href="#" data-course-id="9" data-other-courses-ids="[]" class="inactive">
-      Course #2
-    </a>
-  </li>
-  <li class="clearfix">
-    <a href="#" data-course-id="3" data-other-courses-ids="[11, 3, 1]" class="inactive">
-      Course #3
-    </a>
-  </li>
-  <li class="clearfix">
-    <a href="#" data-course-id="1" data-other-courses-ids="[11, 3, 1]" class="inactive">
-      Course #4
-    </a>
-  </li>
-  <li class="clearfix">
-    <a href="#" data-course-id="7" data-other-courses-ids="[]" class="inactive">
-      Course #5
-    </a>
-  </li>
-  <li class="clearfix">
-    <a href="#" data-course-id="5" data-other-courses-ids="[5]" class="inactive">
-      Course #6
-    </a>
-  </li>
-  <li class="clearfix">
-    <a href="#" data-course-id="10" data-other-courses-ids="[10]">
-      Course #7
+  <li class="clearfix" *ngFor="let course of courses">
+    <a class="inactive">
+      {{course.name}}
     </a>
   </li>
 </ul>
