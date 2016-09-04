@@ -4,4 +4,12 @@ import { Component } from '@angular/core';
     selector: 'my-app',
     templateUrl: 'app/app.component.html'
 })
-export class AppComponent { }
+export class AppComponent {
+
+  public price: number;
+
+  onPriceSet(price: number) {
+    this.price = price;
+  }
+
+}
