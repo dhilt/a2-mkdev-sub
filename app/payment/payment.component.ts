@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Card} from './card';
 
 @Component({
   selector: 'payment',
@@ -8,10 +9,7 @@ import {Component, Input} from '@angular/core';
 export class PaymentComponent {
   @Input('price') price: number;
 
-  public cardNumber: string;
-  public expires: string;
-  public cardholderName: string;
-  public cvv: string;
+  cardTemp: Card = new Card('', '', '', '');
 
   cardNumberMask: any[] = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/];
 
@@ -36,7 +34,6 @@ export class PaymentComponent {
 
   cardholderNameMask(value: string): any[] {
     let result: Array<any> = [];
-    console.log(value);
     let max = value.length > 28 ? 28 : value.length;
     let isSpace = false;
     for(let i = 0; i < max; i++) {

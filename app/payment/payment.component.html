@@ -9,22 +9,22 @@
         <input id="card-number" type="text" data-stripe="number"
         placeholder="0000 0000 0000 0000"
         [textMask]="{mask: cardNumberMask}"
-        name="cardNumber" [(ngModel)]="cardNumber">
+        name="cardNumber" [(ngModel)]="cardTemp.number">
         <label for="card-month-year">Expires:</label>
         <input id="card-month-year" type="text" placeholder="00/0000"
         [textMask]="{mask: expiresMask}"
-        name="expires" [(ngModel)]="expires">
+        name="expires" [(ngModel)]="cardTemp.expires">
       </div>
 
       <div class="card-fields">
         <label for="card-holder">Cardholder name:</label>
         <input id="card-holder" type="text" placeholder="CARD HOLDER"
         [textMask]="{mask: cardholderNameMask}"
-        name="cardholderName" [(ngModel)]="cardholderName">
+        name="cardholderName" [(ngModel)]="cardTemp.name">
         <label for="card-cvc">CVC / CVV:</label>
         <input id="card-cvc" type="text" data-stripe="cvc" placeholder="cvc"
         [textMask]="{mask: cvvMask}"
-        name="cvv" [(ngModel)]="cvv">
+        name="cvv" [(ngModel)]="cardTemp.cvv">
       </div>
     </div>
     <input type="submit" class="button button-centered" id="upgrade-button"
