@@ -7,4 +7,10 @@ import {Component, Input} from '@angular/core';
 
 export class PaymentComponent {
   @Input('price') price: number;
+
+  public cardNumber: string;
+  public expires: string;
+  public cardholderName: string;
+  public cvv: string;
+
 }
