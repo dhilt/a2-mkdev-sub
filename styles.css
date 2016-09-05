@@ -7116,6 +7116,11 @@ pre {
   width: 250px
 }
 
+#upgrade-button.disabled {
+  text-decoration: none;
+  background-color: #aaa;
+}
+
 #slider {
   margin: 80px 0 50px 60px;
   width: 80%

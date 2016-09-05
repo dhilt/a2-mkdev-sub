@@ -9,7 +9,9 @@ import {Card} from './card';
 export class PaymentComponent {
   @Input('price') price: number;
 
+  card: Card = new Card('', '', '', '');
   cardTemp: Card = new Card('', '', '', '');
+  isCardReady: boolean = false;
 
   cardNumberMask: any[] = [/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/];
 
@@ -52,5 +54,28 @@ export class PaymentComponent {
   }
 
   cvvMask: any[] = [/\d/, /\d/, /\d/];
+
+  checkCard(value: string, key: string): void {
+    if(key === 'number') {
+      this.card.number = value && value.replace(/[^\d]+/g, '').length === 16 ? value : '';
+    }
+    if(key === 'name') {
+      this.card.name = value && value.search(/[A-Z]+\ [A-Z]+/g, '') === 0 ? value : '';
+    }
+    if(key === 'expires') {
+      this.card.expires = value && value.search(/\d\d\/\d\d\d\d/) === 0 ? value : '';
+    }
+    if(key === 'cvv') {
+      this.card.cvv = value && value.search(/\d\d\d/) === 0 ? value : '';
+    }
+    this.isCardReady = !!(this.card.number && this.card.name && this.card.expires && this.card.cvv);
+  }
+
+  doPay(): void {
+    if(!this.isCardReady) {
+      return;
+    }
+    alert('Not implemented');
+  }
 
 }
