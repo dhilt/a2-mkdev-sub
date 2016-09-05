@@ -8,18 +8,22 @@
         <label for="card-number">Credit Card Number:</label>
         <input id="card-number" type="text" data-stripe="number"
         placeholder="0000 0000 0000 0000"
+        [textMask]="{mask: cardNumberMask}"
         name="cardNumber" [(ngModel)]="cardNumber">
         <label for="card-month-year">Expires:</label>
         <input id="card-month-year" type="text" placeholder="00/0000"
+        [textMask]="{mask: expiresMask}"
         name="expires" [(ngModel)]="expires">
       </div>
 
       <div class="card-fields">
         <label for="card-holder">Cardholder name:</label>
         <input id="card-holder" type="text" placeholder="CARD HOLDER"
+        [textMask]="{mask: cardholderNameMask}"
         name="cardholderName" [(ngModel)]="cardholderName">
         <label for="card-cvc">CVC / CVV:</label>
         <input id="card-cvc" type="text" data-stripe="cvc" placeholder="cvc"
+        [textMask]="{mask: cvvMask}"
         name="cvv" [(ngModel)]="cvv">
       </div>
     </div>
