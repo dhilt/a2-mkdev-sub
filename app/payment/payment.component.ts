@@ -60,7 +60,7 @@ export class PaymentComponent {
       this.card.number = value && value.replace(/[^\d]+/g, '').length === 16 ? value : '';
     }
     if(key === 'name') {
-      this.card.name = value && value.search(/[A-Z]+\ [A-Z]+/g, '') === 0 ? value : '';
+      this.card.name = value && value.search(/[A-Z]+\ [A-Z]+/g) === 0 ? value : '';
     }
     if(key === 'expires') {
       this.card.expires = value && value.search(/\d\d\/\d\d\d\d/) === 0 ? value : '';
